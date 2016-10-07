@@ -55,8 +55,8 @@ class GoPiggy(pigo.Pigo):
                 servo(20)
                 self.encB(20)
                 self.encR(16)
-                self.encL(22)
-                self.encF(24)
+                self.encL(20)
+                self.encF(16)
                 servo(120)
                 time.sleep(.1)
                 x +=25
@@ -74,7 +74,8 @@ class GoPiggy(pigo.Pigo):
 
 def error():
     print('Error in input')
-
+def status(self):
+    print("I'm at" +str(vot))
 
 def quit():
     raise SystemExit
