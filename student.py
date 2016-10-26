@@ -67,6 +67,17 @@ class GoPiggy(pigo.Pigo):
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
+        #TODO: If while loop fails, check for other paths
+        while True:
+            while self.isClear():
+                enf(10)
+            answer = self. choosePath()
+            if answer == "left":
+                self.encL(5)
+            elif answer == "right":
+                self.encR(5)
+            #lets go foward just a little bit
+
 
 
 ####################################################
@@ -74,8 +85,7 @@ class GoPiggy(pigo.Pigo):
 
 def error():
     print('Error in input')
-def status(self):
-    print("I'm at" +str(vot))
+
 
 def quit():
     raise SystemExit
