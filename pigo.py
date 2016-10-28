@@ -72,7 +72,6 @@ class Pigo(object):
         self.encL(5)
         self.encF(5)
         for x in range(self.MIDPOINT-20, self.MIDPOINT+20, 10):
-        servo(x)
         time.sleep(.1)
 
 
