@@ -78,7 +78,7 @@ class Pigo(object):
 
     ########################################
     ##### FUNCTIONS NOT INTENDED TO BE OVERWRITTEN
-    def encF(self, enc):
+    def encf(self, enc):
         print('Moving '+str((enc/18))+' rotation(s) forward')
         enc_tgt(1, 1, enc)
         fwd()
