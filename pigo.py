@@ -63,7 +63,7 @@ class Pigo(object):
         print('Parent dance is lame.')
         print("Is it clear?")
         for x in range(self.MIDPOINT-20, self.MIDPOINT+20, 5):
-            if not self.isClear()
+            if not self.isClear():
                 print "Omgorsh, it's not safe!"
         servo(x)
         time.sleep(.1)
