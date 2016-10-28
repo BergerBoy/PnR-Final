@@ -64,7 +64,7 @@ class Pigo(object):
         print("Is it clear?")
         for x in range(self.MIDPOINT-20, self.MIDPOINT+20, 5):
             if not self.isClear():
-                print "Omgorsh, it's not safe!"
+                print ("Omgorsh, it's not safe!")
         servo(x)
         time.sleep(.1)
         self.encB(5)
