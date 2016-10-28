@@ -11,6 +11,8 @@ import time
 class Pigo(object):
     MIDPOINT = 77
     STOP_DIST = 20
+    RIGHT_SPEED = 200
+    LEFT_SPEED = 200
     scan = [None] * 180
 
     def __init__(self):
@@ -31,8 +33,9 @@ class Pigo(object):
         menu = {"1": ("Navigate forward", self.nav),
                 "2": ("Rotate", self.rotate),
                 "3": ("Dance", self.dance),
-                "4": ("Calibrate servo", self.calibrate),
+                "4": ("Calibrate", self.calibrate),
                 "5": ("Forward", self.encF),
+                "6": ("Open House Demo", self.openHouse),
                 "q": ("Quit", quit)
                 }
         for key in sorted(menu.keys()):
@@ -41,6 +44,22 @@ class Pigo(object):
         ans = input("Your selection: ")
         menu.get(ans, [None, error])[1]()
 
+    def openHouse(self):
+        while True:
+            if not self.isClear():
+                self.beShy()
+
+    def beShy(self):
+        set_speed(80)
+        self.encB(5)
+        for x in range(3):
+            servo(20)
+            time.sleep(.1)
+            servo(120)
+            time.sleep(.1)
+        self.encL(2)
+        self.encR(2)
+        self.encF(5)
 
     def nav(self):
         print("Parent nav")
@@ -61,18 +80,16 @@ class Pigo(object):
     ##DANCING IS FOR THE CHILD CLASS
     def dance(self):
         print('Parent dance is lame.')
-        print("Is it clear?")
         for x in range(self.MIDPOINT-20, self.MIDPOINT+20, 5):
-            if not self.isClear():
-                print ("Omgorsh, it's not safe!")
-        servo(x)
-        time.sleep(.1)
+            servo(x)
+            time.sleep(.1)
         self.encB(5)
         self.encR(5)
         self.encL(5)
         self.encF(5)
         for x in range(self.MIDPOINT-20, self.MIDPOINT+20, 10):
-
+            servo(x)
+            time.sleep(.1)
 
 
 
@@ -220,7 +237,21 @@ class Pigo(object):
                 else:
                     print("Midpoint now saved to: " + str(self.MIDPOINT))
                     break
+        response = input("Do you want to check if I'm driving straight? (y/n)")
+        if response == 'y':
 
+            while True:
+                set_left_speed(self.LEFT_SPEED)
+                set_right_speed(self.RIGHT_SPEED)
+                print("Left: " + str(self.LEFT_SPEED) + "//  Right: " + str(self.RIGHT_SPEED))
+                self.encF(9)
+                response = input("Reduce left, reduce right or done? (l/r/d): ")
+                if response == 'l':
+                    self.LEFT_SPEED -= 10
+                elif response == 'r':
+                    self.RIGHT_SPEED -= 10
+                else:
+                    break
 
 ########################
 #### STATIC FUNCTIONS
@@ -233,4 +264,4 @@ def quit():
     raise SystemExit
 
 
-p = Pigo
+p = Pigo()
