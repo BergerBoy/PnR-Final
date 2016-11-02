@@ -15,6 +15,7 @@ class Pigo(object):
     LEFT_SPEED = 200
     scan = [None] * 180
 
+
     def __init__(self):
         # this makes sure the parent handler doesn't take over student's
         if __name__ == "__main__":
