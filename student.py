@@ -81,6 +81,24 @@ class GoPiggy(pigo.Pigo):
                 self.encR(5)
             #lets go foward just a little bit
 
+    #cruise method
+    def cruise(self):
+        set left speed (110)
+        set right speed (110)
+        print("Is is clear in front of me")
+        clear = self.isClear()
+        print(clear)
+        while True:
+            if clear:
+                print("Go Go Go!!!")
+                fwd()
+            if not self.isClear():
+                print("STOP")
+                self.stop()
+                if answer == "left":
+                    self.encL(5)
+                elif answer == "right":
+                    self.encR(5)
 
 
 ####################################################
