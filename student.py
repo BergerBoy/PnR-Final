@@ -73,7 +73,7 @@ class GoPiggy(pigo.Pigo):
         #TODO: If while loop fails, check for other paths
         while True:
             while self.isClear():
-                encF(10)
+                self.encF(10)
             answer = self.choosePath()
             if answer == "left":
                 self.encL(5)
