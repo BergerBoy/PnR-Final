@@ -13,7 +13,7 @@ class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
     MIDPOINT = 106
-    STOP_DIST = 20
+    STOP_DIST = 40
     RIGHT_SPEED = 200
     LEFT_SPEED = 200
 
@@ -72,8 +72,7 @@ class GoPiggy(pigo.Pigo):
         ##### WRITE YOUR FINAL PROJECT HERE
         #TODO: If while loop fails, check for other paths
         while True:
-            while self.isClear():
-                self.encF(10)
+            self.cruise()
             answer = self.choosePath()
             if answer == "left":
                 self.encL(5)
@@ -129,22 +128,18 @@ class GoPiggy(pigo.Pigo):
 
     #cruise method
     def cruise(self):
-        set_left_speed (190)
-        set_right_speed (190)
+        servo(self.MIDPOINT)
+
+        set_left_speed(self.LEFT_SPEED)
+        set_right_speed(self.RIGHT_SPEED)
         print("Is is clear in front of me")
-        clear = self.isClear()
-        print(clear)
-        while True:
-            if clear:
-                print("Go Go Go!!!")
-                fwd()
-            if not self.isClear():
-                print("STOP")
-                self.stop()
-                if answer == "left":
-                    self.encL(5)
-                elif answer == "right":
-                    self.encR(5)
+        if self.isClear():
+            fwd()
+            while True:
+                if us_dist(15) < self.STOP_DIST:
+                    break
+                time.sleep(.1)
+        self.stop()
 
 
 ####################################################
