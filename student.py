@@ -85,7 +85,8 @@ class GoPiggy(pigo.Pigo):
     def wideScan(self):
         # dump all values
         self.flushScan()
-        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, +5):
+        # Change the 5 and .05 for more accuracy
+        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, +3):
             servo(x)
             time.sleep(.05)
             scan1 = us_dist(15)
