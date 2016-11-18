@@ -17,6 +17,10 @@ class GoPiggy(pigo.Pigo):
     RIGHT_SPEED = 200
     LEFT_SPEED = 200
 
+    turn_track = 0
+    TIME_PER_DEGREE = 0.011
+    TURN_MODIFIER = .5
+
     # CONSTRUCTOR
     def __init__(self):
         print("Piggy has be instantiated!")
@@ -65,6 +69,42 @@ class GoPiggy(pigo.Pigo):
                 x +=25
                 stop()
 
+###MY NEW TURN METHODS because encR and encL dont get it
+#Takes number of degrees and right according
+    def turnR(self, deg):
+        #blah
+        self.turn_track += deg
+        print("The exit is " +str(self.turn_track) + "degrees away.")
+        self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
+                      self.RIGHT_SPEED * self.TURN_MODIFIER)
+        #actually turn
+        right_rot()
+        #by using the data from our turn experiment calculate how long we need to turn for
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop()
+        #return to normal speed
+        self.setSpeed(self.LEFT_SPEED), self.RIGHT_SPEED)
+
+#####FINISH
+    def turnL(self, tt):
+    #adjust tracker to see how many degrees away the turn is
+    self.turn_track -= deg
+    print ("The exit is " +str.(self.turn_track) = "degrees away!")
+        self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
+                      self.RIGHT_SPEED * self.TURN_MODIFIER)
+
+
+
+    def setSpeed(self, left, right):
+        set_left_speed(left)
+        set_right_speed(right)
+        time.sleep(.05)
+
+        #do stuff
+        left_rot()
+        time.sleep(deg*self.TIME_PER_DEGREE)
+        self.stop()
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
     # AUTONOMOUS DRIVING
     def nav(self):
