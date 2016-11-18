@@ -83,7 +83,7 @@ class GoPiggy(pigo.Pigo):
         time.sleep(deg * self.TIME_PER_DEGREE)
         self.stop()
         #return to normal speed
-        self.setSpeed(self.LEFT_SPEED), self.RIGHT_SPEED)
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
 #####FINISH
     def turnL(self, tt):
