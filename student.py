@@ -77,20 +77,25 @@ class GoPiggy(pigo.Pigo):
         print("The exit is " +str(self.turn_track) + "degrees away.")
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
                       self.RIGHT_SPEED * self.TURN_MODIFIER)
-        #actually turn
-        right_rot()
-        #by using the data from our turn experiment calculate how long we need to turn for
-        time.sleep(deg * self.TIME_PER_DEGREE)
-        self.stop()
-        #return to normal speed
-        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
+    # actually turn
+    right_rot()
+    # by using the data from our turn experiment calculate how long we need to turn for
+    time.sleep(deg * self.TIME_PER_DEGREE)
+    self.stop()
+    # return to normal speed
+    self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-#####FINISH
+    #####FINISH
     def turnL(self, tt):
     #adjust tracker to see how many degrees away the turn is
-        self.turn_track -= deg
+    self.turn_track -= deg
     print ("The exit is " +str.(self.turn_track) + "degrees away!")
     self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER, self.RIGHT_SPEED * self.TURN_MODIFIER)
+    # do stuff
+    left_rot()
+    time.sleep(deg * self.TIME_PER_DEGREE)
+    self.stop()
+    self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
 
 
@@ -101,11 +106,6 @@ class GoPiggy(pigo.Pigo):
         set_right_speed(int(right))
         time.sleep(.05)
 
-        #do stuff
-        left_rot()
-        time.sleep(deg*self.TIME_PER_DEGREE)
-        self.stop()
-        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
     # AUTONOMOUS DRIVING
     # Explain the purpose of the method
