@@ -73,6 +73,7 @@ class Pigo(object):
 
     def nav(self):
         print("Parent nav")
+        #main app loop
         while True:
             choice = self.choosePath()
             if choice == "fwd":

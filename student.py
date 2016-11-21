@@ -88,7 +88,7 @@ class GoPiggy(pigo.Pigo):
 #####FINISH
     def turnL(self, tt):
     #adjust tracker to see how many degrees away the turn is
-    self.turn_track -= deg
+        self.turn_track -= deg
     print ("The exit is " +str.(self.turn_track) + "degrees away!")
     self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER, self.RIGHT_SPEED * self.TURN_MODIFIER)
 
@@ -108,16 +108,21 @@ class GoPiggy(pigo.Pigo):
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
     # AUTONOMOUS DRIVING
+    # Explain the purpose of the method
+    # Central logic loop of my navigation
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
         #TODO: If while loop fails, check for other paths
         while True:
+            # TODO: Replace choosePath with a method that's smarter.
             self.cruise()
             answer = self.choosePath()
             if answer == "left":
+                # TODO: Replace '45' with a variable representing a smarter option
                 self.encL(5)
             elif answer == "right":
+                # TODO: Replace '45' with a variable representing a smarter option
                 self.encR(5)
             #lets go foward just a little bit
 
