@@ -16,10 +16,11 @@ class GoPiggy(pigo.Pigo):
     # STOP_DIST allows for robot to stop, check its path and make sure that nothing is in its way.
     STOP_DIST = 40
     # Experiment with different speeds to see what will get your bot to drive straight
+    # RIGHT_SPEED is the speed that allows it to turn left
+    # Update the number to provide more accuracy
     RIGHT_SPEED = 200
     # LEFT_SPEED is the speed that allows it to turn left
     #Update the number t provide more accuracy
-
     LEFT_SPEED = 200
     # explain what the item below is used for
     turn_track = 0
