@@ -192,7 +192,7 @@ class GoPiggy(pigo.Pigo):
         # The robot checks if the path is clear
         if self.isClear():
             fwd()
-            # explain what the item below is used for
+            # If the distance of the robot is less then the stop distance.
             while True:
                 if us_dist(15) < self.STOP_DIST:
                     break
