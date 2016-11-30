@@ -27,7 +27,7 @@ class GoPiggy(pigo.Pigo):
     # This provides a better turn method
     #The time it take for a one degree turn
     TIME_PER_DEGREE = 0.011
-    # explain what the item below is used for
+    # The speed the robots does to make an accurate turn
     TURN_MODIFIER = .5
 
     # CONSTRUCTOR
