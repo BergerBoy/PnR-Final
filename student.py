@@ -13,20 +13,24 @@ class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
     MIDPOINT = 106
+    # explain what STOP_DIST is used for
     STOP_DIST = 40
+    # Experiment with different speeds to see what will get your bot to drive straight
     RIGHT_SPEED = 200
+    # explain what the item below is used for
     LEFT_SPEED = 200
-
+    # explain what the item below is used for
     turn_track = 0
+    # explain what the item below is used for
     TIME_PER_DEGREE = 0.011
+    # explain what the item below is used for
     TURN_MODIFIER = .5
 
     # CONSTRUCTOR
     def __init__(self):
         print("Piggy has be instantiated!")
-        # this method makes sure Piggy is looking forward
-        # self.calibrate()
-        # let's use an event-driven model, make a handler of sorts to listen for "events"
+
+        # explain what the item below is used for
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
         while True:
             self.stop()
@@ -53,7 +57,7 @@ class GoPiggy(pigo.Pigo):
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
-        print ('it is safe to dance')
+        print('it is safe to dance')
         for x in range(100, 200, 25):
             while self.isClear() and x <= 200:
                 self.encR(18)
@@ -66,39 +70,41 @@ class GoPiggy(pigo.Pigo):
                 self.encF(16)
                 servo(120)
                 time.sleep(.1)
-                x +=25
+                x += 25
                 stop()
 
-###MY NEW TURN METHODS because encR and encL dont get it
-#Takes number of degrees and right according
+    ###MY NEW TURN METHODS because encR and encL dont get it
+    # Takes number of degrees and right according????????
     def turnR(self, deg):
-        #blah
+        # blah????????
         self.turn_track += deg
-        print("The exit is " +str(self.turn_track) + "degrees away.")
+        print("The exit is " + str(self.turn_track) + "degrees away.")
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
                       self.RIGHT_SPEED * self.TURN_MODIFIER)
-    # actually turn
-    right_rot()
-    # by using the data from our turn experiment calculate how long we need to turn for
-    time.sleep(deg * self.TIME_PER_DEGREE)
-    self.stop()
-    # return to normal speed
-    self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-    #####FINISH
-    def turnL(self, tt):
-    #adjust tracker to see how many degrees away the turn is
-    self.turn_track -= deg
-    print ("The exit is " +str.(self.turn_track) + "degrees away!")
-    self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER, self.RIGHT_SPEED * self.TURN_MODIFIER)
-    # do stuff
-    left_rot()
-    time.sleep(deg * self.TIME_PER_DEGREE)
-    self.stop()
-    self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
+        # actually turn
+        right_rot()
+        # by using the data from our turn experiment calculate how long we need to turn for
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop()
+        # return to normal speed
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
+    # explain what the item below is used for
+    def turnL(self, deg):
+        # adjust tracker to see how many degrees away the turn is
+        self.turn_track -= deg
+        print("The exit is " + str.(self.turn_track) + "degrees away!")
+        self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
+                      self.RIGHT_SPEED * self.TURN_MODIFIER)
+        # do stuff
+        left_rot()
+        # explain what the item below is used for
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop()
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-
+    # explain what the item below is used for
     def setSpeed(self, left, right):
         print("Left speed: " + str(left))
         print("Right speed: " + str(right))
@@ -106,14 +112,13 @@ class GoPiggy(pigo.Pigo):
         set_right_speed(int(right))
         time.sleep(.05)
 
-
     # AUTONOMOUS DRIVING
     # Explain the purpose of the method
     # Central logic loop of my navigation
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
-        #TODO: If while loop fails, check for other paths
+        # TODO: If while loop fails, check for other paths
         while True:
             # TODO: Replace choosePath with a method that's smarter.
             self.cruise()
@@ -124,7 +129,7 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 # TODO: Replace '45' with a variable representing a smarter option
                 self.encR(5)
-            #lets go foward just a little bit
+                # lets go foward just a little bit
 
     # SEARCH 120 DEGREES COUNTING BY 2's
     def wideScan(self):
@@ -157,11 +162,13 @@ class GoPiggy(pigo.Pigo):
             self.wideScan()
         avgRight = 0
         avgLeft = 0
+        # AVERAGING THE RIGHT SIDE
         for x in range(self.MIDPOINT - 60, self.MIDPOINT):
             if self.scan[x]:
                 avgRight += self.scan[x]
         avgRight /= 60
         print('The average dist on the right is ' + str(avgRight) + 'cm')
+        # AVERAGING THE LEFT SIDE
         for x in range(self.MIDPOINT, self.MIDPOINT + 60):
             if self.scan[x]:
                 avgLeft += self.scan[x]
@@ -172,15 +179,17 @@ class GoPiggy(pigo.Pigo):
         else:
             return "left"
 
-    #cruise method
+    # cruise method
     def cruise(self):
         servo(self.MIDPOINT)
-
+        # TODO: Replace below with a single setSpeed method
         set_left_speed(self.LEFT_SPEED)
         set_right_speed(self.RIGHT_SPEED)
         print("Is is clear in front of me")
+        # explain what the item below is used for
         if self.isClear():
             fwd()
+            # explain what the item below is used for
             while True:
                 if us_dist(15) < self.STOP_DIST:
                     break
@@ -202,3 +211,6 @@ def quit():
 ####################################################
 ######## THE ENTIRE APP IS THIS ONE LINE....
 g = GoPiggy()
+Sign
+up
+for free
