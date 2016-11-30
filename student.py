@@ -13,7 +13,7 @@ class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
     MIDPOINT = 106
-    # STOP_DIST allows for robot to stop in a certain distance. 
+    # STOP_DIST allows for robot to stop in a certain distance.
     STOP_DIST = 40
     # Experiment with different speeds to see what will get your bot to drive straight
     # RIGHT_SPEED is the speed that allows it to turn left
@@ -78,7 +78,6 @@ class GoPiggy(pigo.Pigo):
                 stop()
 
     ###MY NEW TURN METHODS because encR and encL dont get it
-    # Takes number of degrees and right according????????
     def turnR(self, deg):
         #Contols the accuracy of the turn in degrees
         self.turn_track += deg
@@ -117,7 +116,7 @@ class GoPiggy(pigo.Pigo):
         time.sleep(.05)
 
     # AUTONOMOUS DRIVING
-    # Explain the purpose of the method
+    # The robot has the ability to navigate.
     # Central logic loop of my navigation
     def nav(self):
         print("Piggy nav")
