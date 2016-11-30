@@ -80,7 +80,7 @@ class GoPiggy(pigo.Pigo):
     ###MY NEW TURN METHODS because encR and encL dont get it
     # Takes number of degrees and right according????????
     def turnR(self, deg):
-        # blah????????
+        #Contols the accuracy of the turn in degrees
         self.turn_track += deg
         print("The exit is " + str(self.turn_track) + "degrees away.")
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
