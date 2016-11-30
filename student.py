@@ -13,7 +13,7 @@ class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
     MIDPOINT = 106
-    # STOP_DIST allows for robot to stop, check its path and make sure that nothing is in its way.
+    # STOP_DIST allows for robot to stop in a certain distance. 
     STOP_DIST = 40
     # Experiment with different speeds to see what will get your bot to drive straight
     # RIGHT_SPEED is the speed that allows it to turn left
