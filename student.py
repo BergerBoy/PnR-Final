@@ -190,7 +190,7 @@ class GoPiggy(pigo.Pigo):
         set_left_speed(self.LEFT_SPEED)
         set_right_speed(self.RIGHT_SPEED)
         print("Is is clear in front of me")
-        # explain what the item below is used for
+        # The robot checks if the path is clear 
         if self.isClear():
             fwd()
             # explain what the item below is used for
