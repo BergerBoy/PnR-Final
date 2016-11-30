@@ -135,7 +135,7 @@ class GoPiggy(pigo.Pigo):
                 self.encR(5)
                 # lets go foward just a little bit
 
-    # SEARCH 120 DEGREES COUNTING BY 2's
+    # SEARCH 120 DEGREES COUNTING BY 1's
     def wideScan(self):
         # dump all values
         self.flushScan()
@@ -190,7 +190,7 @@ class GoPiggy(pigo.Pigo):
         set_left_speed(self.LEFT_SPEED)
         set_right_speed(self.RIGHT_SPEED)
         print("Is is clear in front of me")
-        # The robot checks if the path is clear 
+        # The robot checks if the path is clear
         if self.isClear():
             fwd()
             # explain what the item below is used for
