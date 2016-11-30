@@ -19,12 +19,13 @@ class GoPiggy(pigo.Pigo):
     # RIGHT_SPEED is the speed that allows it to turn left
     # Update the number to provide more accuracy
     RIGHT_SPEED = 200
-    # LEFT_SPEED is the speed that allows it to turn left
+    #LEFT_SPEED is the speed that allows it to turn left
     #Update the number t provide more accuracy
     LEFT_SPEED = 200
     # explain what the item below is used for
     turn_track = 0
-    # explain what the item below is used for
+    # This provides a better turn method
+    #The time it take for a one degree turn
     TIME_PER_DEGREE = 0.011
     # explain what the item below is used for
     TURN_MODIFIER = .5
