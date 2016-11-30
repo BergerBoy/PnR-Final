@@ -107,7 +107,7 @@ class GoPiggy(pigo.Pigo):
         self.stop()
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-    # explain what the item below is used for
+    # The setSpeed is the speed that the robot goes.  
     def setSpeed(self, left, right):
         print("Left speed: " + str(left))
         print("Right speed: " + str(right))
@@ -214,6 +214,3 @@ def quit():
 ####################################################
 ######## THE ENTIRE APP IS THIS ONE LINE....
 g = GoPiggy()
-Sign
-up
-for free
