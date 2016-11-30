@@ -102,12 +102,12 @@ class GoPiggy(pigo.Pigo):
                       self.RIGHT_SPEED * self.TURN_MODIFIER)
         # do stuff
         left_rot()
-        # explain what the item below is used for
+        #The time.sleep allows the robot to take a second.
         time.sleep(deg * self.TIME_PER_DEGREE)
         self.stop()
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-    # The setSpeed is the speed that the robot goes.  
+    # The setSpeed is the speed that the robot goes.
     def setSpeed(self, left, right):
         print("Left speed: " + str(left))
         print("Right speed: " + str(right))
