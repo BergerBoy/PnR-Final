@@ -142,6 +142,10 @@ class GoPiggy(pigo.Pigo):
     def kenny(self):
         #use the built in wideScan
         self.wideScan()
+        #count will keep track of contigeous positive readings
+        count = 0
+        #make a list, start with zero
+        option = [0]
 
 
 
