@@ -146,6 +146,9 @@ class GoPiggy(pigo.Pigo):
         count = 0
         #make a list, start with zero
         option = [0]
+        for x in range(self.MIDPOINT - 60, self. MIDPOINT + 60):
+        #if x has a value lets considering it, if not skip
+            if x:
 
 
 
