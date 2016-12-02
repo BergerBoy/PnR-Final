@@ -146,9 +146,17 @@ class GoPiggy(pigo.Pigo):
         count = 0
         #make a list, start with zero
         option = [0]
+        SAFETY_BUFFER = 30
         for x in range(self.MIDPOINT - 60, self. MIDPOINT + 60):
         #if x has a value lets considering it, if not skip
-            if x:
+            if self.scan[x]:
+                #add 30 if you want, it is a safety buffer
+                if self.scan[x] > (self.STOP_DIST + SAFETY_BUFFER):
+                    count +=1
+                    #if this reading isnt safe...
+                else:
+                    #I have to reset the count, this path wont work
+                    count = 0
 
 
 
