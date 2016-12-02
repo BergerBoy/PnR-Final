@@ -124,15 +124,26 @@ class GoPiggy(pigo.Pigo):
         # TODO: If while loop fails, check for other paths
         while True:
             # TODO: Replace choosePath with a method that's smarter.
+        if self.isClear()
             self.cruise()
             answer = self.choosePath()
+            #turn_target = self.kenny()
             if answer == "left":
+                self.turnL(45)
                 # TODO: Replace '45' with a variable representing a smarter option
-                self.encL(5)
             elif answer == "right":
                 # TODO: Replace '45' with a variable representing a smarter option
-                self.encR(5)
-                # lets go foward just a little bit
+                self.turnL(45)
+                # lets go forward just a little bit
+
+
+
+    #replace turn method. Find better option
+    def kenny(self):
+        #use the built in wideScan
+        self.wideScan()
+
+
 
     # SEARCH 120 DEGREES COUNTING BY 1's
     def wideScan(self):
