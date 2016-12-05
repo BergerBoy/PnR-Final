@@ -97,7 +97,7 @@ class GoPiggy(pigo.Pigo):
     def turnL(self, deg):
         # adjust tracker to see how many degrees away the turn is
         self.turn_track -= deg
-        print("The exit is " + str.(self.turn_track) + "degrees away!")
+        print("The exit is " + str(self.turn_track) + "degrees away!")
         # slow down for more exact turning
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
                       self.RIGHT_SPEED * self.TURN_MODIFIER)
