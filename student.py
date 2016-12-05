@@ -39,7 +39,6 @@ class GoPiggy(pigo.Pigo):
         while True:
             self.stop()
             self.handler()
-
     ##### HANDLE IT
     def handler(self):
         ## This is a DICTIONARY, it's a list with custom index values
@@ -119,24 +118,26 @@ class GoPiggy(pigo.Pigo):
     # The robot has the ability to navigate.
     # Central logic loop of my navigation
     def nav(self):
-        print("Piggy nav")
-        ##### WRITE YOUR FINAL PROJECT HERE
-        # TODO: If while loop fails, check for other paths
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        print("[ Press CTRL + C to stop me, then run stop.py ]\n")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        # this is the loop part of the "main logic loop"
         while True:
-            # TODO: Replace choosePath with a method that's smarter.
-        if self.isClear()
-            self.cruise()
-            answer = self.choosePath()
-            #turn_target = self.kenny()
-            if answer == "left":
-                self.turnL(45)
-                # TODO: Replace '45' with a variable representing a smarter option
-            elif answer == "right":
-                # TODO: Replace '45' with a variable representing a smarter option
-                self.turnL(45)
-                # lets go forward just a little bit
-
-
+            # if it's clear in front of me...
+            if self.isClear():
+                # drive until something's in front of me. Good idea? you decide.
+                self.cruise()
+            # YOU DECIDE: check to see if you should backup?
+            self.backUp()
+            # IF I HAD TO STOP, PICK A BETTER PATH
+            turn_target = self.kenny()
+            # a positive turn is right
+            if turn_target > 0:
+                self.turnR(turn_target)
+            # negative degrees mean left
+            else:
+                # let's remove the negative with abs()
+                self.turnL(abs(turn_target))
 
     #replace turn method. Find better option
     def kenny(self):
@@ -147,6 +148,12 @@ class GoPiggy(pigo.Pigo):
         #make a list, start with zero
         option = [0]
         SAFETY_BUFFER = 30
+        #what increment do you have yor widescan set to?
+        INC = 2
+
+        #################
+        #############BUILD FROM OPTIONS##########
+        ########################
         for x in range(self.MIDPOINT - 60, self. MIDPOINT + 60):
         #if x has a value lets considering it, if not skip
             if self.scan[x]:
@@ -157,6 +164,31 @@ class GoPiggy(pigo.Pigo):
                 else:
                     #I have to reset the count, this path wont work
                     count = 0
+                    #if you get 20 degrees in a row
+                if count ==(20/INC)
+                    #Success! Ive found enough positive readings in a row to count
+                    #reset to scan another 20
+                    print("Found an option from " + str(x -20) + " to " + str(x)
+                    count = 0
+                    option.append(x - 10)
+        #########################
+        ########BUILD FROM OPTIONS#######
+        ################################
+        bestoption = 90
+        #assume your not turning
+        winner = 0
+        for x in option:
+            #skip our filter option
+            if not x.__index__() == 0:
+                print("Choice # " + str(x.__index__()) + "is@" + str(x) + "degrees")
+                ideal = self.turn_track + self.MIDPOINT
+                print("My ideal choice would be " + str(ideal))
+                if bestoption > abs(ideal - x):
+                    bestoption = abs(ideal - x)
+                    winner = x - self.MIDPOINT
+        return winner
+
+
 
 
 
