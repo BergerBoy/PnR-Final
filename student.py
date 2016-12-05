@@ -255,9 +255,6 @@ class GoPiggy(pigo.Pigo):
     # cruise method
     def cruise(self):
         servo(self.MIDPOINT)
-        #TODO Do I need this below
-        #set_left_speed(self.LEFT_SPEED)
-        #set_right_speed(self.RIGHT_SPEED)
         print("Is is clear in front of me")
         # The robot checks if the path is clear
         if self.isClear():
