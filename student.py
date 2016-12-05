@@ -253,6 +253,7 @@ class GoPiggy(pigo.Pigo):
             fwd()
             # If the distance of the robot is less then the stop distance.
             while True:
+                # break the loop if the sensor reading is closer than our stop dist
                 if us_dist(15) < self.STOP_DIST:
                     break
                 # You can decide how many seconds between each check
