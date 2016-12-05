@@ -81,6 +81,7 @@ class GoPiggy(pigo.Pigo):
         #Contols the accuracy of the turn in degrees
         self.turn_track += deg
         print("The exit is " + str(self.turn_track) + "degrees away.")
+        # use the setSpeed method to slow down our turns
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
                       self.RIGHT_SPEED * self.TURN_MODIFIER)
 
@@ -97,13 +98,15 @@ class GoPiggy(pigo.Pigo):
         # adjust tracker to see how many degrees away the turn is
         self.turn_track -= deg
         print("The exit is " + str.(self.turn_track) + "degrees away!")
+        # slow down for more exact turning
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
                       self.RIGHT_SPEED * self.TURN_MODIFIER)
-        # do stuff
+        #actually turn
         left_rot()
         #The time.sleep allows the robot to take a second.
         time.sleep(deg * self.TIME_PER_DEGREE)
         self.stop()
+        # return speed to normal cruise speeds
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
     # The setSpeed is the speed that the robot goes.
@@ -253,8 +256,8 @@ class GoPiggy(pigo.Pigo):
     def cruise(self):
         servo(self.MIDPOINT)
         #TODO Do I need this below
-        set_left_speed(self.LEFT_SPEED)
-        set_right_speed(self.RIGHT_SPEED)
+        #set_left_speed(self.LEFT_SPEED)
+        #set_right_speed(self.RIGHT_SPEED)
         print("Is is clear in front of me")
         # The robot checks if the path is clear
         if self.isClear():
