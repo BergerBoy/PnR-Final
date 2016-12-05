@@ -249,12 +249,15 @@ class GoPiggy(pigo.Pigo):
         print("Is is clear in front of me")
         # The robot checks if the path is clear
         if self.isClear():
+            #start driving forward
             fwd()
             # If the distance of the robot is less then the stop distance.
             while True:
                 if us_dist(15) < self.STOP_DIST:
                     break
+                # Gives it time to sleep
                 time.sleep(.1)
+        # stop if the sensor loop broke
         self.stop()
 
 
