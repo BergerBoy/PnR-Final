@@ -255,7 +255,7 @@ class GoPiggy(pigo.Pigo):
             while True:
                 if us_dist(15) < self.STOP_DIST:
                     break
-                # Gives it time to sleep
+                # You can decide how many seconds between each check
                 time.sleep(.1)
         # stop if the sensor loop broke
         self.stop()
