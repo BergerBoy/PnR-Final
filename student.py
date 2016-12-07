@@ -34,7 +34,7 @@ class GoPiggy(pigo.Pigo):
     def __init__(self):
         print("Piggy has be instantiated!")
 
-        # explain what the item below is used for
+        # self.setSpeed
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
         while True:
             self.stop()
@@ -116,6 +116,13 @@ class GoPiggy(pigo.Pigo):
         set_left_speed(int(left))
         set_right_speed(int(right))
         time.sleep(.05)
+
+    def backUp(self):
+        if us_dist(15) < 10:
+            print("Too close. Backing up for half a second")
+            bwd()
+            time.sleep(.5)
+            self.stop()
 
     # AUTONOMOUS DRIVING
     # The robot has the ability to navigate.
