@@ -138,8 +138,12 @@ class GoPiggy(pigo.Pigo):
                 # drive until something's in front of me. Good idea? you decide.
                 self.cruise()
             # YOU DECIDE: check to see if you should backup?
-            self.backUp()
+
+            if self.isClear():
+                # drive until something's in front of me. Good idea? you decide.
+                self.cruise()
             # IF I HAD TO STOP, PICK A BETTER PATH
+            self.backUp()
             turn_target = self.kenny()
             # a positive turn is right
             if turn_target > 0:
