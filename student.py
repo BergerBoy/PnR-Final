@@ -134,8 +134,10 @@ class GoPiggy(pigo.Pigo):
         # this is the loop part of the "main logic loop"
         while True:
             # if it's clear in front of me...
+            #Will perform a three point check around self.MIDPOINT and will return True if no distance is shorter than the stop dist.
             if self.isClear():
                 # drive until something's in front of me. Good idea? you decide.
+                # method that will replace the while loop described above. Instead of inching forward, you could check the distance in front of you while driving forward.
                 self.cruise()
             # YOU DECIDE: check to see if you should backup?
 
@@ -143,6 +145,8 @@ class GoPiggy(pigo.Pigo):
                 # drive until something's in front of me. Good idea? you decide.
                 self.cruise()
             # IF I HAD TO STOP, PICK A BETTER PATH
+
+
             self.backUp()
             turn_target = self.kenny()
             # a positive turn is right
@@ -157,6 +161,7 @@ class GoPiggy(pigo.Pigo):
     #def kenny decides how big a turn to make to keep going
     def kenny(self):
         # Activate our scanner!
+        #This will fill your self.scan array with distances self.MIDPOINT-60, self.MIDPOINT+60, +2
         self.wideScan()
         # count will keep track of contigeous positive readings
         count = 0
@@ -210,9 +215,9 @@ class GoPiggy(pigo.Pigo):
                     # store this turn as the best option
                     bestoption = turn
         if bestoption > 0:
-            input("\nABOUT TO TURN RIGHT BY: " + str(bestoption) + " degrees")
+            print("\nABOUT TO TURN RIGHT BY: " + str(bestoption) + " degrees")
         else:
-            input("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
+            print("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
         return bestoption
 
     # SEARCH 120 DEGREES COUNTING BY 1's
@@ -238,6 +243,7 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.01)
 
     # DECIDE WHICH WAY TO TURN
+    #Performs self.flushScan() and then self.wideScan() to scan the area in front.
     def choosePath(self) -> str:
         print('Considering options...')
         if self.isClear():
@@ -274,6 +280,7 @@ class GoPiggy(pigo.Pigo):
             # If the distance of the robot is less then the stop distance.
             while True:
                 # break the loop if the sensor reading is closer than our stop dist
+                # if it sees something closer than your stop distance, break out of the loop and self.stop()
                 if us_dist(15) < self.STOP_DIST:
                     break
                 # You can decide how many seconds between each check
