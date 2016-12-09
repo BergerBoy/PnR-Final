@@ -121,7 +121,7 @@ class GoPiggy(pigo.Pigo):
         if us_dist(15) < 10:
             print("Too close. Backing up for half a second")
             bwd()
-            time.sleep(.5)
+            time.sleep(.05)
             self.stop()
 
     # AUTONOMOUS DRIVING
