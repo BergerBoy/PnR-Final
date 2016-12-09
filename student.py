@@ -140,13 +140,6 @@ class GoPiggy(pigo.Pigo):
                 # method that will replace the while loop described above. Instead of inching forward, you could check the distance in front of you while driving forward.
                 self.cruise()
             # YOU DECIDE: check to see if you should backup?
-
-            if self.isClear():
-                # drive until something's in front of me. Good idea? you decide.
-                self.cruise()
-            # IF I HAD TO STOP, PICK A BETTER PATH
-
-
             self.backUp()
             turn_target = self.kenny()
             # a positive turn is right
@@ -282,7 +275,12 @@ class GoPiggy(pigo.Pigo):
                 # break the loop if the sensor reading is closer than our stop dist
                 # if it sees something closer than your stop distance, break out of the loop and self.stop()
                 if us_dist(15) < self.STOP_DIST:
-                    break
+                    self.stop()
+                    if us_dist(15) < self.STOP_DIST:
+                        break
+                    else:
+                        fwd()
+                        continue
                 # You can decide how many seconds between each check
                 time.sleep(.1)
         # stop if the sensor loop broke
