@@ -21,7 +21,7 @@ class GoPiggy(pigo.Pigo):
     RIGHT_SPEED = 200
     #LEFT_SPEED is the speed that allows it to turn left
     #Update the number t provide more accuracy
-    LEFT_SPEED = 186
+    LEFT_SPEED = 193
     # This allows the robot to have more precise turns
     turn_track = 0
     # This provides a better turn method
