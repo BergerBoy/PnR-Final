@@ -18,7 +18,7 @@ class GoPiggy(pigo.Pigo):
     # Experiment with different speeds to see what will get your bot to drive straight
     # RIGHT_SPEED is the speed that allows it to turn left
     # Update the number to provide more accuracy
-    RIGHT_SPEED = 195
+    RIGHT_SPEED = 190
     #LEFT_SPEED is the speed that allows it to turn left
     #Update the number t provide more accuracy
     LEFT_SPEED = 200
